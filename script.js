@@ -6,6 +6,7 @@ const h1 = document.createElement("h1");
 const pdiv = document.createElement("p");
 const btn = document.querySelector("#btn");
 const btn2 = document.createElement("button");
+let rotacion = 0;
 
 const styleOn = (e) => {
   container.appendChild(pred);
@@ -27,14 +28,21 @@ const styleOff = (e) => {
   btn.textContent = "Goodbye! :'(";
   container.appendChild(btn2);
   e.target.style.cssText =
-    "position: relative; top: 50%; left: 25%; transition:all 1550ms ease-in-out; transform: scale(1%);";
+    "position: relative; top: 50%; left: 25%; transition:all 2s ease-in-out; transform: scale(1%);";
 };
 
 const start = () => {
   location.reload();
 };
 
-btn2.textContent = "Start again!";
+const rotarBoton = () => {
+  rotacion += 5;
+  btn2.style.transform = `rotate(${rotacion}deg)`;
+};
+
+btn2.textContent = "Click to start again!";
+btn2.style.cssText =
+  "margin-top: 100px; margin-left: 25rem; transition: all 850ms ease-in;background-color: #4CAF50; border: none;color: white;padding: 10px 20px;text-align: center;text-decoration: none;display: inline-block;font-size: 16px;border-radius: 8px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); font-size: 20px;";
 
 pred.style.color = "red";
 pred.textContent = "Hey I’m red!";
@@ -50,4 +58,7 @@ pdiv.textContent = "ME TOO!";
 
 btn.addEventListener("click", styleOn);
 btn.addEventListener("dblclick", styleOff);
+btn.addEventListener("dblclick", () => {
+  setInterval(rotarBoton, 100);
+});
 btn2.addEventListener("click", start);
