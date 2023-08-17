@@ -1,9 +1,18 @@
 const container = document.querySelector("#container");
-const pred = document.createElement('p');
-const blueh3 = document.createElement('h3');
-const aldiv = document.createElement('div');
-const h1 = document.createElement('h1');
-const pdiv = document.createElement('p');
+const pred = document.createElement("p");
+const blueh3 = document.createElement("h3");
+const aldiv = document.createElement("div");
+const h1 = document.createElement("h1");
+const pdiv = document.createElement("p");
+const btn = document.querySelector("#btn");
+
+const styleOn = () => {
+  container.appendChild(pred);
+  container.appendChild(blueh3);
+  aldiv.appendChild(h1);
+  aldiv.appendChild(pdiv);
+  container.appendChild(aldiv);
+};
 
 pred.style.color = "red";
 pred.textContent = "Hey I’m red!";
@@ -17,8 +26,4 @@ h1.textContent = "I'm in a div";
 
 pdiv.textContent = "ME TOO!";
 
-container.appendChild(pred);
-container.appendChild(blueh3);
-aldiv.appendChild(h1);
-aldiv.appendChild(pdiv);
-container.appendChild(aldiv);
+btn.addEventListener('click', styleOn);
